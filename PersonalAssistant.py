@@ -71,14 +71,7 @@ def takeCommand():
 
 def checkEmailName(name):
     dict = {
-        "pratham": "prathamdubey06@gmail.com",
-        "tanya": "tanyam170654@gmail.com",
-        "himanshi": "roherahimanshi14@gmail.com",
-        "abhay": "abhaydwivedi237@gmail.com",
-        "anushka": "anushkadwivedi17@gmail.com",
-        "harshmandloi": "harshmandloi541@gmail.com",
-        "pranshu": "pranshu1607@gmail.com",
-        "prakrati": "dubey.prakrati01@gmail.com"
+        "Name": "EmailId"
     }
     if name in dict:
         return (dict[name])
@@ -89,8 +82,8 @@ def sendEmail(to, content):
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.ehlo()
     server.starttls()
-    server.login('rishikiller06@gmail.com', 'Rishi0604')
-    server.sendmail('rishikiller06@gmail.com', to, content)
+    server.login('YourEmail', 'Password')
+    server.sendmail('YourEmail', to, content)
     server.close()
 
 def open_camera():
@@ -98,15 +91,7 @@ def open_camera():
 
 def check_whatsapp(con_name):
     whatsapp_num={
-        "pratham":"7000968520",
-        "tanya":"9109256326",
-        "abhay":"7692074665",
-        "rashi":"6261734421",
-        "mom":"8878078449",
-        "anushka":"8962878344",
-        "himanshi":"8224072271",
-        "papa":"9993381933",
-        "Chotu": "8770470649"
+        "Name":"Number"
     }
     if con_name in whatsapp_num:
         return (whatsapp_num[con_name])
@@ -287,7 +272,7 @@ if __name__ == '__main__':
         elif 'current weather' in query:
             d=query.replace("tell me the current weather of","")
             city_name=d.replace(" ",'')
-            APIKEY = 'b6534a4645330162e6fc26dadf004a88'
+            APIKEY = 'Your API Key'
             base_url = "http://api.openweathermap.org/data/2.5/weather?"
             complete_url = base_url + "appid=" + APIKEY + "&q=" + city_name
             response = requests.get(complete_url)
@@ -324,7 +309,7 @@ if __name__ == '__main__':
         elif 'current temperature' in query:
             d=query.replace("tell me the current temperature of","")
             city_name=d.replace(" ",'')
-            APIKEY = 'b6534a4645330162e6fc26dadf004a88'
+            APIKEY = 'Your API key'
             res = requests.get(
                 f"http://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={APIKEY}&units=metric").json()
             weather = res["weather"][0]["main"]
@@ -410,7 +395,7 @@ if __name__ == '__main__':
 
         #-------Today's News----------
         elif "today's news" in query:
-            apikey="33c2e5f250ab426c83b3f62385d8e86"
+            apikey="Your API Key"
             r = requests.get(f"https://newsapi.org/v2/top-headlines?country=in&apiKey={apikey}")
             res = r.json()
             print(res['status'])
